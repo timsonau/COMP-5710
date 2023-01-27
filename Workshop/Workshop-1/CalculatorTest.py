@@ -4,6 +4,8 @@ class TestCalc(unittest.TestCase):
 
 
 
+# At Home Testing Implementation
+#
 # Analysis performMult(x, y)
 # 
 #   inputs:
@@ -51,7 +53,60 @@ class TestCalc(unittest.TestCase):
         actual = calc.performMult()
         self.assertEqual(expected, actual, "bug in implementation. Result should be 'Must input two valid numbers (x, y)'")
 
+# Analysis performDiv(x, y)
+# 
+#   inputs:
+#       x: number (int or float)
+#       y: number (int or float)
+#   
+#   outputs:
+#       side-effect: No State Change
+#       returns: {x / y, "Must input two valid numbers (x, y)"}
+#
+# Regular Path Test
+    def test010_IntegerDivision(self):
+        x = -5839
+        y = 330
+        expected = -17.69393939394
+        actual = calc.performDiv(x, y)
+        precision = 11
+        self.assertAlmostEqual(expected, actual, precision,"bug in implementation. Result should be -17.69393939394")
+    
+    def test020_FloatDivision(self):
+        x = 77.46
+        y = 582.8
+        expected = 0.13291008922
+        actual = calc.performDiv(x, y)
+        precision = 11
+        self.assertAlmostEqual(expected, actual, precision,"bug in implementation. Result should be 0.13291008922")
+    
+    def test030_IntFloatDivision(self):
+        x = 1192
+        y = 2.55
+        expected = 467.450980392
+        actual = calc.performDiv(x, y)
+        precision = 11
+        self.assertAlmostEqual(expected, actual, precision, "bug in implementation. Result should be 467.450980392")
 
+# Error Path Test
+    def test910_NonIntegerInputs(self):
+        x = "X"
+        y = "Y"
+        expected = "Must input two valid numbers (x, y)"
+        actual = calc.performDiv(x, y)
+        self.assertEqual(expected, actual, "bug in implementation. Result should be 'Must input two valid numbers (x, y)'")
+    
+    def test920_MissingInputs(self):
+        expected = "Must input two valid numbers (x, y)"
+        actual = calc.performDiv()
+        self.assertEqual(expected, actual, "bug in implementation. Result should be 'Must input two valid numbers (x, y)'")
+    
+    def test930_DivideByZero(self):
+        x = 7789379
+        y = 0
+        expected = "Divisor cannot be zero"
+        actual = calc.performDiv(x, y)
+        self.assertEqual(expected, actual, "bug in implementation. Result should be 'Divisor cannot be zero'")
 
 if __name__ == '__main__':
     unittest.main()
