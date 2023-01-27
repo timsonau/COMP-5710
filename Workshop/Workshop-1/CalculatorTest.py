@@ -2,7 +2,12 @@ import unittest
 import Calculator as calc
 class TestCalc(unittest.TestCase):
 
+# In Class Testing Implmentation
+    def testSub1(self):
+        self.assertEqual(1, calc.performSub(2, 1), "Bug in implementation. Results should be 1.")    
 
+    def testSub2(self):
+        self.assertEqual(10, calc.performSub(20, 10), "Bug in implementation. Results should be 1.")    
 
 # At Home Testing Implementation
 #

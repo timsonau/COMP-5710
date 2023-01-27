@@ -1,3 +1,8 @@
+#In Class Workshop
+def performSub(x, y):
+    return x - y 
+
+#At home Workshop
 def performMult(x =None, y= None):
     if (x == None or y == None):
         return "Must input two valid numbers (x, y)"
