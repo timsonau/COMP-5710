@@ -83,10 +83,10 @@ class TestCalc(unittest.TestCase):
     def test030_IntFloatDivision(self):
         x = 1192
         y = 2.55
-        expected = 467.450980392
+        expected = 467.45098039216
         actual = calc.performDiv(x, y)
         precision = 11
-        self.assertAlmostEqual(expected, actual, precision, "bug in implementation. Result should be 467.450980392")
+        self.assertAlmostEqual(expected, actual, precision, "bug in implementation. Result should be 467.45098039216")
 
 # Error Path Test
     def test910_NonIntegerInputs(self):
