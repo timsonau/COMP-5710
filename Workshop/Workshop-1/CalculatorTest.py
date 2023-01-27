@@ -27,7 +27,8 @@ class TestCalc(unittest.TestCase):
         y = -6.3356
         expected = -14.856982
         actual = calc.performMult(x, y)
-        self.assertEqual(expected, actual, "bug in implementation. Result should be -14.856982")
+        precision = 7
+        self.assertAlmostEqual(expected, actual, precision,"bug in implementation. Result should be -14.856982")
     
     def test030_IntFloatMultiplication(self):
         x = 2
