@@ -1,0 +1,34 @@
+By Weakness
+CWE-703: Improper Check or Handling of Exceptional Conditions -> 31
+CWE-330: Use of Insufficiently Random Values -> 7
+CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection') -> 4
+CWE-502: Deserialization of Untrusted Data -> 2
+
+
+
+By issue
+B101: 30
+B311: 7
+B603: 2
+B404: 1
+B403: 1
+B301: 1
+B607: 1
+B110: 1
+
+
+Code scanned:
+        Total lines of code: 3395
+        Total lines skipped (#nosec): 0
+
+Run metrics:
+        Total issues (by severity):
+                Undefined: 0
+                Low: 43
+                Medium: 1
+                High: 0
+        Total issues (by confidence):
+                Undefined: 0
+                Low: 0
+                Medium: 0
+                High: 44
