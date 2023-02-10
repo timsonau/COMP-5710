@@ -196,6 +196,9 @@ def checkFlow(data, code):
         trackTaint(data, info_df_list)
 
 
+# 1000 -> val1 -> simple calculator -> v1 -> res -> data
+# (1) Create Parse Tree :)
+
 if __name__ == '__main__':
     input_program = 'calc.py'
     data2track = 1000
