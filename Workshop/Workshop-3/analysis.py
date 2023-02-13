@@ -65,7 +65,7 @@ def getCommonAssiDetails(assignDict, elemType):
 def getVariables(tree_, elemTypeParam):
     '''
     Input: Python parse tree object 
-    Output: All expressions as list of tuples 
+    Output: All expressions as list of tuples (LHS, RHS, Identifier)
     '''
     final_list = []
     for stmt_ in tree_.body:
@@ -88,6 +88,7 @@ def getVariables(tree_, elemTypeParam):
 
 
 def getFunctionAssignments(full_tree):
+    #output ('lhs', 'rhs', 'param', 'param position')
     call_list = []
     for stmt_ in full_tree.body:
         for node_ in ast.walk(stmt_):
@@ -171,18 +172,43 @@ def trackTaint(val2track, df_list_param):
     var_, call_, func_def, func_var = df_list_param[0], df_list_param[1], df_list_param[2], df_list_param[3]
 
     # TODO: Complete this method so that the output is 1000->val1->v1->res
+    #find from func def list the method that matches the file name & the taint value
+    print(val2track)
+    row_with_taint = (var_.loc[var_['RHS'] == val2track])
+    taint_arg_name = row_with_taint.iloc[0]['LHS']
+    print(taint_arg_name)
+
+    row_with_taint_arg_name =  call_.loc[call_['ARG_NAME'] == taint_arg_name]
+    taint_arg_position = _getSubstringOf(row_with_taint_arg_name.iloc[0]['TYPE'], ":")
+    taint_arg_func_name = row_with_taint_arg_name.iloc[0]['FUNC_NAME']
+
+    print(taint_arg_func_name)
+    #row_with_taint_arg_definition = func_def.loc[func_def.loc['FUNC_NAME'] == taint_arg_func_name] 
+    print(func_def)
+
+    #taint_func_def_param_name = func_def.iloc(func_def['FUNC_NAME'] == taint_arg_func_name and
+    #                                            )  
+    #find the argument type associated with the variable we pass in as argument
+    #taint_var_call = call_.loc[call_['ARG_NAME'] == taint_var =]
+
 
 
 def checkFlow(data, code):
     full_tree = None
     if os.path.exists(code):
+        #parse tree of calc.py
         full_tree = ast.parse(open(code).read())
+        print(full_tree)
         # First let us obtain the variables in forms of expressions
         fullVarList = getVariables(full_tree, 'VAR_ASSIGNMENT')
+        print(fullVarList)
         # Next let us get function invocations by looking into function calls
         call_list = getFunctionAssignments(full_tree)
+        print(call_list)
         # Now let us look into the body of the function and see of the paramter is used
         funcDefList, funcvarList = getFunctionDefinitions(code)
+        print(funcDefList)
+        print(funcvarList)
         # For the workshop please use fullVarList, call_list, funcDefList, funcvarList
         # Then print a path like the following:
         # 1000->val1->v1->res
@@ -195,11 +221,18 @@ def checkFlow(data, code):
         info_df_list = [var_df, call_df, func_def_df, func_var_df]
         trackTaint(data, info_df_list)
 
+def _getSubstringOf(s, split_after):
+    return s.partition(split_after)[2]
 
-# 1000 -> val1 -> simple calculator -> v1 -> res -> data
+
+
+# output: 1000 (is passed) -> val1 (assigned to val1) -> simple calculator -> v1 -> res (stored in res after operation) -> data (returned vaule stored in data)
+#use output of these methods to create a flow like above
+
 # (1) Create Parse Tree :)
 
 if __name__ == '__main__':
     input_program = 'calc.py'
+    #the taint value
     data2track = 1000
     checkFlow(data2track, input_program)
