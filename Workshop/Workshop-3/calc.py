@@ -6,8 +6,10 @@ COMP 5710/6710
 
 
 def simpleCalculator(v1, v2, operation):
+    #(1) Res being assigned a value
     res = 0
     if operation == '+':
+        #(2) Res being calculated a value
         res = v1 + v2
     elif operation == '-':
         res = v1 - v2
