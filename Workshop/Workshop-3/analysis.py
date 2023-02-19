@@ -196,17 +196,12 @@ def checkFlow(data, code):
     if os.path.exists(code):
         #parse tree of calc.py
         full_tree = ast.parse(open(code).read())
-        print(full_tree)
         # First let us obtain the variables in forms of expressions
         fullVarList = getVariables(full_tree, 'VAR_ASSIGNMENT')
-        print(fullVarList)
         # Next let us get function invocations by looking into function calls
         call_list = getFunctionAssignments(full_tree)
-        print(call_list)
         # Now let us look into the body of the function and see of the paramter is used
         funcDefList, funcvarList = getFunctionDefinitions(code)
-        print(funcDefList)
-        print(funcvarList)
         # For the workshop please use fullVarList, call_list, funcDefList, funcvarList
         # Then print a path like the following:
         # 1000->val1->v1->res
@@ -223,10 +218,7 @@ def _getSubstringOf(s, split_after):
     return s.partition(split_after)[2]
 
 
-
-# output: 1000 (is passed) -> val1 (assigned to val1) -> simple calculator -> v1 -> res (stored in res after operation) -> data (returned vaule stored in data)
 #use output of these methods to create a flow like above
-
 # (1) Create Parse Tree :)
 
 if __name__ == '__main__':
