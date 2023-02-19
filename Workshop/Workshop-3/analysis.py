@@ -178,19 +178,17 @@ def trackTaint(val2track, df_list_param):
     taint_arg_name = row_with_taint.iloc[0]['LHS']
     print(taint_arg_name)
 
+    
     row_with_taint_arg_name =  call_.loc[call_['ARG_NAME'] == taint_arg_name]
     taint_arg_position = _getSubstringOf(row_with_taint_arg_name.iloc[0]['TYPE'], ":")
-    taint_arg_func_name = row_with_taint_arg_name.iloc[0]['FUNC_NAME']
+    func_name_that_taint_is_passed_to = row_with_taint_arg_name.iloc[0]['FUNC_NAME']
+    row_with_taint_param_name = func_def.loc[(func_def['FUNC_NAME'] == func_name_that_taint_is_passed_to) & (func_def['TYPE'].str.endswith(taint_arg_position))]
+    taint_param_name =  row_with_taint_param_name.iloc[0]['ARG_NAME']
+    print(taint_param_name)
 
-    print(taint_arg_func_name)
-    #row_with_taint_arg_definition = func_def.loc[func_def.loc['FUNC_NAME'] == taint_arg_func_name] 
-    print(func_def)
-
-    #taint_func_def_param_name = func_def.iloc(func_def['FUNC_NAME'] == taint_arg_func_name and
-    #                                            )  
-    #find the argument type associated with the variable we pass in as argument
-    #taint_var_call = call_.loc[call_['ARG_NAME'] == taint_var =]
-
+    row_with_taint_param_being_used = func_var.loc[func_var['RHS'].str.find(taint_param_name) != -1]
+    var_taint_param_is_assigned_to = row_with_taint_param_being_used.iloc[0]['LHS']
+    print(var_taint_param_is_assigned_to)
 
 
 def checkFlow(data, code):
