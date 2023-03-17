@@ -1,0 +1,6 @@
+(1) NO_NETWORK_POLICY: 53
+The misconfiguration category that is related with not specifying network policies, which could make Kubernetes installations susceptible to unauthorized accesses.
+(2) NO_ROLLING_UPDATE: 18
+The misconfiguration category that is related with not explicitly specifying RollingUpdate in the configuration file, which could make a Kubernetes installation susceptible to supply chain related attacks.
+(3) INSECURE_HTTP: 13
+The misconfiguration category that is rlated with using HTTP without SSL/TLS certificates to setup URLs or transmit traffic inside and outside the Kubernetes clusters, which could lead to the data transmitted across Kubernetes objects being susceptible to man-in-the-middle (MITM) attacks
