@@ -1,0 +1,22 @@
+2023-03-13 10:23:22,190 Executing simple.py
+2023-03-13 10:26:45,165 Executing simple.py
+2023-03-13 10:26:47,038 Collected first input
+2023-03-13 10:26:48,255 Collected second input
+2023-03-13 10:26:48,255 Finished executing simple.py
+2023-03-20 00:43:50,773 Executing simple.py
+2023-03-20 00:44:57,179 Executing simple.py
+2023-03-20 00:46:11,188 Executing simple.py
+2023-03-20 00:46:13,259 Collected first input
+2023-03-20 00:46:13,681 Collected second input
+2023-03-20 00:46:13,681 Finished executing simple.py
+2023-03-20 00:46:42,845 Executing simple.py
+2023-03-20 00:46:44,849 Collected first input
+2023-03-20 00:46:45,245 Collected second input
+2023-03-20 00:46:45,245 Finished executing simple.py
+2023-03-20 00:46:54,050 Executing simple.py
+2023-03-20 00:46:56,818 Collected first input
+2023-03-20 00:46:57,480 Collected second input
+2023-03-20 00:46:57,480 Finished executing simple.py
+2023-03-20 00:52:55,441 iris data set loaded
+2023-03-20 00:52:55,449 iris data set loaded
+2023-03-20 00:52:55,454 diabetes data set loaded

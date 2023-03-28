@@ -3,12 +3,21 @@ from sklearn import datasets, linear_model
 import pandas as pd
 import numpy as np 
 import mnist
+import logging
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Conv2D, MaxPooling2D, Dense, Flatten
 from tensorflow.keras.utils import to_categorical
 
+#create logger obj
+format_str = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+file_name  = 'app.log'
+logging.basicConfig(format=format_str, filemode='w', filename=file_name, level=logging.INFO)
+logObj = logging.getLogger('ml-logger')
+    
 def readData():
     iris = datasets.load_iris()
+    #log because a external data set is being introduced. Can log for poisoning attacks 
+    logObj.info("data loaded: iris dataset in readData()")
     print(type(iris.data), type(iris.target))
     X = iris.data
     Y = iris.target
@@ -19,6 +28,8 @@ def readData():
 
 def makePrediction():
     iris = datasets.load_iris()
+    #log because a external data set is being introduced. Can log for poisoning attacks 
+    logObj.info('data loaded: iris dataset in makePrediction()')
     knn = KNeighborsClassifier(n_neighbors=6)
     knn.fit(iris['data'], iris['target'])
     X = [
@@ -30,6 +41,8 @@ def makePrediction():
 
 def doRegression():
     diabetes = datasets.load_diabetes()
+    #log because a external data set is being introduced. Can log for poisoning attacks 
+    logObj.info('data loaded: diabetes dataset in doRegression()')
     diabetes_X = diabetes.data[:, np.newaxis, 2]
     diabetes_X_train = diabetes_X[:-20]
     diabetes_X_test = diabetes_X[-20:]
@@ -38,11 +51,18 @@ def doRegression():
     regr = linear_model.LinearRegression()
     regr.fit(diabetes_X_train, diabetes_y_train)
     diabetes_y_pred = regr.predict(diabetes_X_test)
+    #log because a prediction is made with model. Can log and catch model tricking
+    logObj.info("prediction made: linear regression model prediction on diabetes_X in doRegression() result \n%s\n", diabetes_y_pred)
 
 
 def doDeepLearning():
     train_images = mnist.train_images()
+    #log because a external data set is being introduced. Can log for poisoning attacks 
+    logObj.info('data loaded: mnist training images in doDeepLearning()')
     train_labels = mnist.train_labels()
+    #log because a external data set is being introduced. Can log for poisoning attacks 
+    logObj.info('data loaded: mnist training labels in doDeepLearning()')
+
     test_images = mnist.test_images()
     test_labels = mnist.test_labels()
 
@@ -64,7 +84,6 @@ def doDeepLearning():
     Flatten(),
     Dense(10, activation='softmax'),
     ])
-
     # Compile the model.
     model.compile(
     'adam',
@@ -79,10 +98,13 @@ def doDeepLearning():
     epochs=3,
     validation_data=(test_images, to_categorical(test_labels)),
     )
+    
 
     model.save_weights('cnn.h5')
 
     predictions = model.predict(test_images[:5])
+    #log because a prediction is made with model. Can log and catch model tricking.
+    logObj.info("prediction made: model prediction on test_images[:5] in doDeepLearning() result \n%s\n", predictions)
 
     print(np.argmax(predictions, axis=1)) # [7, 2, 1, 0, 4]
 
@@ -90,6 +112,7 @@ def doDeepLearning():
 
 
 if __name__=='__main__': 
+
     data_frame = readData()
     makePrediction() 
     doRegression() 
