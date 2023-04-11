@@ -1,0 +1,30 @@
+
+unsupported operand type(s) for /: 'str' and 'int'Traceback (most recent call last):
+  File "c:\Users\Admin\Documents\GitHub\COMP-5710\Workshop\Workshop-8\workshop8.py", line 26, in simpleCalculator
+    return v1 / v2
+           ~~~^~~~
+TypeError: unsupported operand type(s) for /: 'str' and 'int'
+division by zeroTraceback (most recent call last):
+  File "c:\Users\Admin\Documents\GitHub\COMP-5710\Workshop\Workshop-8\workshop8.py", line 26, in simpleCalculator
+    return v1 / v2
+           ~~~^~~~
+ZeroDivisionError: division by zero
+can't multiply sequence by non-int of type 'str'Traceback (most recent call last):
+  File "c:\Users\Admin\Documents\GitHub\COMP-5710\Workshop\Workshop-8\workshop8.py", line 28, in simpleCalculator
+    return v1 * v2
+         ~~~^~~~
+TypeError: can't multiply sequence by non-int of type 'str'
+Invalid operator: &Traceback (most recent call last):
+  File "c:\Users\Admin\Documents\GitHub\COMP-5710\Workshop\Workshop-8\workshop8.py", line 34, in simpleCalculator
+    raise ValueError("Invalid operator: " + op)
+ValueError: Invalid operator: &
+unsupported operand type(s) for +: 'NoneType' and 'int'Traceback (most recent call last):
+  File "c:\Users\Admin\Documents\GitHub\COMP-5710\Workshop\Workshop-8\workshop8.py", line 32, in simpleCalculator
+    return v1+v2
+           ~~^~~
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
+unsupported operand type(s) for *: 'int' and 'set'Traceback (most recent call last):
+  File "c:\Users\Admin\Documents\GitHub\COMP-5710\Workshop\Workshop-8\workshop8.py", line 28, in simpleCalculator
+    return v1 * v2
+         ~~~^~~~
+TypeError: unsupported operand type(s) for *: 'int' and 'set'
