@@ -1,0 +1,49 @@
+Enter Secret: root_user
+The secret we want to store: root_user
+==================================================
+==================================================
+c:\Users\Admin\Documents\GitHub\COMP-5710\Workshop\Workshop-9\workshop9.py:19: DeprecationWarning: The raise_on_deleted parameter will change its default value to False in hvac v3.0.0. The current default of True will presere previous behavior. To use the old behavior with no warning, explicitly set this value to True. See https://github.com/hvac/hvac/pull/907  
+  read_response      = client_.secrets.kv.read_secret_version(path=secret_path)
+The secret we have obtained:
+root_user
+==================================================
+
+Enter Secret: test_password
+The secret we want to store: test_password
+==================================================
+==================================================
+c:\Users\Admin\Documents\GitHub\COMP-5710\Workshop\Workshop-9\workshop9.py:19: DeprecationWarning: The raise_on_deleted parameter will change its default value to False in hvac v3.0.0. The current default of True will presere previous behavior. To use the old behavior with no warning, explicitly set this value to True. See https://github.com/hvac/hvac/pull/907  
+  read_response      = client_.secrets.kv.read_secret_version(path=secret_path)
+The secret we have obtained:
+test_password
+==================================================
+
+Enter Secret: ghp_ahAyHoRwoQ
+The secret we want to store: ghp_ahAyHoRwoQ
+==================================================
+==================================================
+c:\Users\Admin\Documents\GitHub\COMP-5710\Workshop\Workshop-9\workshop9.py:19: DeprecationWarning: The raise_on_deleted parameter will change its default value to False in hvac v3.0.0. The current default of True will presere previous behavior. To use the old behavior with no warning, explicitly set this value to True. See https://github.com/hvac/hvac/pull/907  
+  read_response      = client_.secrets.kv.read_secret_version(path=secret_path)
+The secret we have obtained:
+ghp_ahAyHoRwoQ
+==================================================
+
+Enter Secret: MITzaANO=
+The secret we want to store: MITzaANO=
+==================================================
+==================================================
+c:\Users\Admin\Documents\GitHub\COMP-5710\Workshop\Workshop-9\workshop9.py:19: DeprecationWarning: The raise_on_deleted parameter will change its default value to False in hvac v3.0.0. The current default of True will presere previous behavior. To use the old behavior with no warning, explicitly set this value to True. See https://github.com/hvac/hvac/pull/907  
+  read_response      = client_.secrets.kv.read_secret_version(path=secret_path)
+The secret we have obtained:
+MITzaANO=
+==================================================
+
+Enter Secret: t5f28U
+The secret we want to store: t5f28U
+==================================================
+==================================================
+c:\Users\Admin\Documents\GitHub\COMP-5710\Workshop\Workshop-9\workshop9.py:19: DeprecationWarning: The raise_on_deleted parameter will change its default value to False in hvac v3.0.0. The current default of True will presere previous behavior. To use the old behavior with no warning, explicitly set this value to True. See https://github.com/hvac/hvac/pull/907  
+  read_response      = client_.secrets.kv.read_secret_version(path=secret_path)
+The secret we have obtained:
+t5f28U
+==================================================
